@@ -2,7 +2,7 @@ import postgres from '../../../database/connections/postgres.js';
 
 export default async function CreateAddressController(request, response) {
     try {
-        const { name, district, city } = request.body;
+        const { name, district, city, id_user } = request.body;
         const error = [];
 
         if (!name) {

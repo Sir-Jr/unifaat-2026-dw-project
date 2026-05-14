@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import ListUserController from '../../app/Controllers/UserApi/ListUserController.js';
 import GetUserController from '../../app/Controllers/UserApi/GetUserController.js';
 import CreateUserController from '../../app/Controllers/UserApi/CreateUserController.js';
