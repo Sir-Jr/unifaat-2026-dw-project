@@ -1,10 +1,17 @@
+import { configDotenv } from "dotenv";
 import pg from "pg";
 
 const { Pool } = pg;
 
 export default (() => {
 
+    configDotenv({
+        quiet: true
+    });
+
+
     let connection = null;
+
 
     const connect = () => {
 

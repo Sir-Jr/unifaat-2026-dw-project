@@ -1,0 +1,19 @@
+export async function up(db) {
+    await db.query(`
+    CREATE TABLE addresses (
+      id SERIAL PRIMARY KEY,
+      id_user INTEGER NOT NULL REFERENCES users(id),
+      name TEXT NOT NULL,
+      district TEXT NOT NULL,
+      city TEXT NOT NULL,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    )
+  `)
+}
+
+export async function down(db) {
+    await db.query(`
+    DROP TABLE addresses
+  `)
+}

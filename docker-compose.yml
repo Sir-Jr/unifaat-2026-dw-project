@@ -22,6 +22,27 @@ services:
         aliases:
             - nodeweb_host
 
+  #NODE COMMAND
+  nodecommand-container:
+    build:
+      context: .
+      dockerfile: docker/node-command/Dockerfile
+    env_file: 
+      - .env
+      - .env.docker
+    volumes:
+      - .:/app
+      - nodemodules-volume:/app/node_modules
+    depends_on:
+      - postgres-container
+    environment:
+      POSTGRES_HOST: postgres_host
+      POSTGRES_PORT: 5432
+    networks:
+      app-network:
+        aliases:
+            - nodecommand_host
+
   #NGINX
   nginx-container:
     build:
